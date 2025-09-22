@@ -1,0 +1,42 @@
+# Build results
+bin/
+obj/
+[Bb]uild/
+[Ll]og/
+*.log
+
+# MonoGame cache
+*.mgcb
+*.mgcontent
+*.xnb
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio folders
+.vs/
+*.VC.db
+*.VC.opendb
+
+# NuGet packages
+*.nupkg
+packages/
+*.snupkg
+
+# Backup & temp files
+*.bak
+*.tmp
+*.cache
+
+# OS-specific
+Thumbs.db
+.DS_Store
+ehthumbs.db
+
+# IDE-specific
+.vscode/
+.idea/
+*.swp
