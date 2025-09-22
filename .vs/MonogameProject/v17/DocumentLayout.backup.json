@@ -1,0 +1,147 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\pacak\\source\\repos\\MonogameProject\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2F1A7EEE-295B-48D9-9DF0-98052CDF0575}|MonogameProject\\MonogameProject.csproj|c:\\users\\pacak\\source\\repos\\monogameproject\\monogameproject\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F1A7EEE-295B-48D9-9DF0-98052CDF0575}|MonogameProject\\MonogameProject.csproj|solutionrelative:monogameproject\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F1A7EEE-295B-48D9-9DF0-98052CDF0575}|MonogameProject\\MonogameProject.csproj|c:\\users\\pacak\\source\\repos\\monogameproject\\monogameproject\\core\\world.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F1A7EEE-295B-48D9-9DF0-98052CDF0575}|MonogameProject\\MonogameProject.csproj|solutionrelative:monogameproject\\core\\world.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F1A7EEE-295B-48D9-9DF0-98052CDF0575}|MonogameProject\\MonogameProject.csproj|c:\\users\\pacak\\source\\repos\\monogameproject\\monogameproject\\components\\tiletypecomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F1A7EEE-295B-48D9-9DF0-98052CDF0575}|MonogameProject\\MonogameProject.csproj|solutionrelative:monogameproject\\components\\tiletypecomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F1A7EEE-295B-48D9-9DF0-98052CDF0575}|MonogameProject\\MonogameProject.csproj|c:\\users\\pacak\\source\\repos\\monogameproject\\monogameproject\\components\\icomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F1A7EEE-295B-48D9-9DF0-98052CDF0575}|MonogameProject\\MonogameProject.csproj|solutionrelative:monogameproject\\components\\icomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F1A7EEE-295B-48D9-9DF0-98052CDF0575}|MonogameProject\\MonogameProject.csproj|c:\\users\\pacak\\source\\repos\\monogameproject\\monogameproject\\components\\positioncomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F1A7EEE-295B-48D9-9DF0-98052CDF0575}|MonogameProject\\MonogameProject.csproj|solutionrelative:monogameproject\\components\\positioncomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F1A7EEE-295B-48D9-9DF0-98052CDF0575}|MonogameProject\\MonogameProject.csproj|c:\\users\\pacak\\source\\repos\\monogameproject\\monogameproject\\enums\\tiletype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F1A7EEE-295B-48D9-9DF0-98052CDF0575}|MonogameProject\\MonogameProject.csproj|solutionrelative:monogameproject\\enums\\tiletype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F1A7EEE-295B-48D9-9DF0-98052CDF0575}|MonogameProject\\MonogameProject.csproj|c:\\users\\pacak\\source\\repos\\monogameproject\\monogameproject\\entities\\entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F1A7EEE-295B-48D9-9DF0-98052CDF0575}|MonogameProject\\MonogameProject.csproj|solutionrelative:monogameproject\\entities\\entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IComponent.cs",
+              "DocumentMoniker": "C:\\Users\\pacak\\source\\repos\\MonogameProject\\MonogameProject\\Components\\IComponent.cs",
+              "RelativeDocumentMoniker": "MonogameProject\\Components\\IComponent.cs",
+              "ToolTip": "C:\\Users\\pacak\\source\\repos\\MonogameProject\\MonogameProject\\Components\\IComponent.cs",
+              "RelativeToolTip": "MonogameProject\\Components\\IComponent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-22T16:17:43.043Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TileType.cs",
+              "DocumentMoniker": "C:\\Users\\pacak\\source\\repos\\MonogameProject\\MonogameProject\\Enums\\TileType.cs",
+              "RelativeDocumentMoniker": "MonogameProject\\Enums\\TileType.cs",
+              "ToolTip": "C:\\Users\\pacak\\source\\repos\\MonogameProject\\MonogameProject\\Enums\\TileType.cs",
+              "RelativeToolTip": "MonogameProject\\Enums\\TileType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-22T16:17:41.536Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Game1.cs",
+              "DocumentMoniker": "C:\\Users\\pacak\\source\\repos\\MonogameProject\\MonogameProject\\Game1.cs",
+              "RelativeDocumentMoniker": "MonogameProject\\Game1.cs",
+              "ToolTip": "C:\\Users\\pacak\\source\\repos\\MonogameProject\\MonogameProject\\Game1.cs",
+              "RelativeToolTip": "MonogameProject\\Game1.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAkwFEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-22T16:17:30.383Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "World.cs",
+              "DocumentMoniker": "C:\\Users\\pacak\\source\\repos\\MonogameProject\\MonogameProject\\Core\\World.cs",
+              "RelativeDocumentMoniker": "MonogameProject\\Core\\World.cs",
+              "ToolTip": "C:\\Users\\pacak\\source\\repos\\MonogameProject\\MonogameProject\\Core\\World.cs",
+              "RelativeToolTip": "MonogameProject\\Core\\World.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAswEQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-22T14:50:13.77Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PositionComponent.cs",
+              "DocumentMoniker": "C:\\Users\\pacak\\source\\repos\\MonogameProject\\MonogameProject\\Components\\PositionComponent.cs",
+              "RelativeDocumentMoniker": "MonogameProject\\Components\\PositionComponent.cs",
+              "ToolTip": "C:\\Users\\pacak\\source\\repos\\MonogameProject\\MonogameProject\\Components\\PositionComponent.cs",
+              "RelativeToolTip": "MonogameProject\\Components\\PositionComponent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-22T14:46:18.509Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TileTypeComponent.cs",
+              "DocumentMoniker": "C:\\Users\\pacak\\source\\repos\\MonogameProject\\MonogameProject\\Components\\TileTypeComponent.cs",
+              "RelativeDocumentMoniker": "MonogameProject\\Components\\TileTypeComponent.cs",
+              "ToolTip": "C:\\Users\\pacak\\source\\repos\\MonogameProject\\MonogameProject\\Components\\TileTypeComponent.cs",
+              "RelativeToolTip": "MonogameProject\\Components\\TileTypeComponent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-22T14:41:19.147Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Entity.cs",
+              "DocumentMoniker": "C:\\Users\\pacak\\source\\repos\\MonogameProject\\MonogameProject\\Entities\\Entity.cs",
+              "RelativeDocumentMoniker": "MonogameProject\\Entities\\Entity.cs",
+              "ToolTip": "C:\\Users\\pacak\\source\\repos\\MonogameProject\\MonogameProject\\Entities\\Entity.cs",
+              "RelativeToolTip": "MonogameProject\\Entities\\Entity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-22T14:33:13.843Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
