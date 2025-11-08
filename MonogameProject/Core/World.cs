@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MonogameProject.Components;
 using MonogameProject.Entities;
 
@@ -10,7 +8,7 @@ namespace MonogameProject.Core
 {
     public class World
     {
-        /*
+        // Dictionary to hold all entities and their components
         private readonly Dictionary<int, List<IComponent>> _entities = new();
 
         public Entity CreateEntity(int id)
@@ -27,10 +25,13 @@ namespace MonogameProject.Core
                 var components = _entities[entity.Id];
                 var type = component.GetType();
 
-                if (!components.Any(c => c.GetType() == type))
+                var existing = components.FirstOrDefault(c => c.GetType() == type);
+                if (existing != null)
                 {
-                    components.Add(component);
+                    components.Remove(existing);
                 }
+
+                components.Add(component);
             }
         }
 
@@ -38,8 +39,26 @@ namespace MonogameProject.Core
         {
             return _entities.TryGetValue(entity.Id, out var components)
                 ? components
-                : new List<IComponent>();
+                : Enumerable.Empty<IComponent>();
         }
-        */
+
+        public T? TryGetComponent<T>(Entity entity) where T : struct, IComponent
+        {
+            if (_entities.TryGetValue(entity.Id, out var components))
+            {
+                foreach (var c in components)
+                {
+                    if (c is T typed)
+                        return typed;
+                }
+            }
+
+            return null;
+        }
+
+        public IEnumerable<int> GetAllEntityIds()
+        {
+            return _entities.Keys;
+        }
     }
 }

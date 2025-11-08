@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using MonogameProject.Core;
+using MonogameProject.Systems;
 
 namespace MonogameProject
 {
@@ -15,11 +17,14 @@ namespace MonogameProject
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
-
+        //
+        private World _world;
+        //
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            _world = new World();
+            GenerateWorldSystem.GenerateWorld(_world);
             base.Initialize();
         }
 
