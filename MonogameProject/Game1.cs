@@ -57,6 +57,8 @@ namespace MonogameProject
 
             // TODO: Add your update logic here
 
+            ZoomSystem.UpdateZoom(gameTime);
+
             TestMouseClick.TestMouse(_world);
 
             base.Update(gameTime);

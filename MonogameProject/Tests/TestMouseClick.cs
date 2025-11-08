@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using MonogameProject.Components;
+using MonogameProject.Config;
 using MonogameProject.Core;
 using MonogameProject.Entities;
 using MonogameProject.Enums;
-using Microsoft.Xna.Framework;
 
 namespace MonogameProject.Tests
 {
@@ -21,8 +22,8 @@ namespace MonogameProject.Tests
 
             if (mouse.LeftButton == ButtonState.Pressed)
             {
-                int tileX = mouse.X / 16;
-                int tileY = mouse.Y / 16;
+                int tileX = mouse.X / GameSettings.TileSize;
+                int tileY = mouse.Y / GameSettings.TileSize;
 
                 // Iterate through all entities to find the one at the mouse position
                 foreach (var entityId in world.GetAllEntityIds())

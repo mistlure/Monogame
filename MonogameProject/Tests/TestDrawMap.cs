@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonogameProject.Components;
+using MonogameProject.Config;
 using MonogameProject.Core;
 using MonogameProject.Entities;
 using MonogameProject.Enums;
-using Microsoft.Xna.Framework;
 
 namespace MonogameProject.Tests
 {
@@ -40,10 +41,10 @@ namespace MonogameProject.Tests
 
                     // Define rectangle size and position
                     Rectangle rect = new Rectangle(
-                        position.Value.X * 16, // X position in pixels
-                        position.Value.Y * 16, // Y position in pixels
-                        16,                    // Width
-                        16                     // Height
+                        position.Value.X * GameSettings.TileSize, // X position in pixels
+                        position.Value.Y * GameSettings.TileSize, // Y position in pixels
+                        GameSettings.TileSize,                    // Width
+                        GameSettings.TileSize                     // Height
                     );
 
                     spriteBatch.Draw(pixelTexture, rect, color);
