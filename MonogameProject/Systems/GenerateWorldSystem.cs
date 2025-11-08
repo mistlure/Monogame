@@ -22,6 +22,7 @@ namespace MonogameProject.Systems
             var random = new Random();
 
             // Pick random positions for grass placement
+            // Next(...) generates a number between 0 and ...-1
             int grassX = random.Next(width);
             int grassY = random.Next(height);
 
