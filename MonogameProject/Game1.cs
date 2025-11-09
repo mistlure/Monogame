@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonogameProject.Components;
+using MonogameProject.Config;
 using MonogameProject.Core;
 using MonogameProject.Entities;
 using MonogameProject.Enums;
@@ -15,6 +16,8 @@ namespace MonogameProject
         // TEMPORARY
         private World _world;
         private Texture2D _pixelTexture;
+
+        private SpriteFont _font;
         // TEMPORARY
 
         private GraphicsDeviceManager _graphics;
@@ -46,6 +49,8 @@ namespace MonogameProject
             // TEMPORARY
             _pixelTexture = new Texture2D(GraphicsDevice, 1, 1);
             _pixelTexture.SetData(new[] { Color.White });
+
+            _font = Content.Load<SpriteFont>("testFont");
             // TEMPORARY
         }
 
@@ -70,7 +75,19 @@ namespace MonogameProject
 
             // TODO: Add your drawing code here
 
+            _spriteBatch.Begin();
+
             TestDrawMap.TestDraw(_spriteBatch, _pixelTexture, _world);
+
+            // TEMPORARY
+            // Draw coin count in top-right corner
+            string coinText = $"Coins: {GameSettings.PlayerCoins}";
+            Vector2 textSize = _font.MeasureString(coinText);
+            Vector2 position = new Vector2(GraphicsDevice.Viewport.Width - textSize.X - 10, 10);
+            _spriteBatch.DrawString(_font, coinText, position, Color.Yellow);
+            // TEMPORARY
+
+            _spriteBatch.End();
 
             base.Draw(gameTime);
         }

@@ -17,7 +17,7 @@ namespace MonogameProject.Tests
     {
         public static void TestDraw(SpriteBatch spriteBatch, Texture2D pixelTexture, World world)
         {
-            spriteBatch.Begin();
+            //spriteBatch.Begin();
 
             foreach (var entityId in world.GetAllEntityIds())
             {
@@ -51,7 +51,7 @@ namespace MonogameProject.Tests
                 }
             }
 
-            spriteBatch.End();
+            //spriteBatch.End();
         }
     }
 }
