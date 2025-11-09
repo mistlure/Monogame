@@ -42,6 +42,13 @@ namespace MonogameProject.Systems
                     var tileType = (x == grassX && y == grassY) ? TileType.Grass : TileType.Water;
 
                     world.AddComponent(tileEntity, new TileTypeComponent(tileType));
+
+                    // If this is the starting grass tile, mark it as owned
+                    // For TilePurchaseSystem correct functioning
+                    if (x == grassX && y == grassY)
+                    {
+                        world.AddComponent(tileEntity, new OwnedComponent(true));
+                    }
                 }
             }
         }

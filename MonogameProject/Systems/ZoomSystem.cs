@@ -41,7 +41,7 @@ namespace MonogameProject.Systems
                         GameSettings.TileSize = 64;
 
                     // Reset cooldown timer
-                    _zoomCooldown = 0.2;
+                    _zoomCooldown = 0.15;
                 }
             }
 
@@ -57,7 +57,7 @@ namespace MonogameProject.Systems
                     if (GameSettings.TileSize < 4)
                         GameSettings.TileSize = 4;
 
-                    _zoomCooldown = 0.2;
+                    _zoomCooldown = 0.15;
                 }
             }
 

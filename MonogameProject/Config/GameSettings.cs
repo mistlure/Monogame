@@ -16,5 +16,12 @@ namespace MonogameProject.Config
         // Size of each tile in pixels
         // Change this value to adjust the tile size
         public static int TileSize = 16;
+
+        // Initial player coins
+        // Change this value to set the starting amount of coins
+        public static int PlayerCoins = 120;
+
+        // Cost per tile
+        public const int TileCost = 10;
     }
 }
