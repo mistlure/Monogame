@@ -37,6 +37,9 @@ namespace MonogameProject.Systems
 
                     world.AddComponent(tileEntity, new PositionComponent(x, y));
 
+                    // Register tile in fast search dictionary
+                    world.RegisterTile(x, y, tileEntity.Id);
+
                     // Determine tile type based on random grass position
                     // All tiles are water except the one at (grassX, grassY) that was randomly generated
                     var tileType = (x == grassX && y == grassY) ? TileType.Grass : TileType.Water;

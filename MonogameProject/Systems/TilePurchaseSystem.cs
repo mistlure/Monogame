@@ -98,54 +98,59 @@ namespace MonogameProject.Systems
 
         private static void AttemptPurchase(World world, int targetX, int targetY)
         {
-            foreach (var entityId in world.GetAllEntityIds())
+            // Get tile ID directly by coordinates
+            var targetTileId = world.GetTileId(targetX, targetY);
+            
+            if (targetTileId == null) return;
+
+            var entity = new Entity(targetTileId.Value);
+            
+            // Получаем компоненты этого тайла
+            var tile = world.TryGetComponent<TileTypeComponent>(entity);
+            var owned = world.TryGetComponent<OwnedComponent>(entity);
+
+            if (!tile.HasValue) return;
+            
+            if (tile.Value.Type != TileType.Water) return;
+            
+            if (owned.HasValue && owned.Value.isOwned) return;
+            
+            if (GameSettings.PlayerCoins < GameSettings.TileCost) return;
+
+            bool hasNeighbor = false;
+            for (int dy = -1; dy <= 1; dy++)
             {
-                var entity = new Entity(entityId);
-
-                if (world.TryGetComponent<CursorComponent>(entity) != null) continue;
-
-                var position = world.TryGetComponent<PositionComponent>(entity);
-                var tile = world.TryGetComponent<TileTypeComponent>(entity);
-                var owned = world.TryGetComponent<OwnedComponent>(entity);
-
-                if (!position.HasValue || !tile.HasValue) continue;
-
-                if (position.Value.X == targetX && position.Value.Y == targetY)
+                for (int dx = -1; dx <= 1; dx++)
                 {
-                    if (tile.Value.Type != TileType.Water) return;
+                    // Skip the center tile (self)
+                    if (dx == 0 && dy == 0) continue;
 
-                    if (owned.HasValue && owned.Value.isOwned) return;
+                    int nx = targetX + dx;
+                    int ny = targetY + dy;
 
-                    if (GameSettings.PlayerCoins < GameSettings.TileCost) return;
-
-                    bool hasNeighbor = false;
-                    foreach (var otherId in world.GetAllEntityIds())
+                    // Direct lookup for neighbor ID
+                    var neighborId = world.GetTileId(nx, ny);
+                    
+                    if (neighborId != null)
                     {
-                        var other = new Entity(otherId);
-                        var otherPos = world.TryGetComponent<PositionComponent>(other);
-                        var otherOwned = world.TryGetComponent<OwnedComponent>(other);
+                        var neighborEnt = new Entity(neighborId.Value);
+                        var neighborOwned = world.TryGetComponent<OwnedComponent>(neighborEnt);
 
-                        if (!otherPos.HasValue || !otherOwned.HasValue || !otherOwned.Value.isOwned) continue;
-
-                        int dx = Math.Abs(otherPos.Value.X - targetX);
-                        int dy = Math.Abs(otherPos.Value.Y - targetY);
-
-                        if (dx <= 1 && dy <= 1 && (dx + dy) > 0)
+                        if (neighborOwned.HasValue && neighborOwned.Value.isOwned)
                         {
                             hasNeighbor = true;
-                            break;
+                            goto FoundNeighbor;
                         }
                     }
-
-                    if (!hasNeighbor) return;
-
-                    GameSettings.PlayerCoins -= GameSettings.TileCost;
-                    world.AddComponent(entity, new OwnedComponent(true));
-                    world.AddComponent(entity, new TileTypeComponent(TileType.Grass));
-
-                    return;
                 }
             }
+            FoundNeighbor:
+            if (!hasNeighbor) return;
+
+            GameSettings.PlayerCoins -= GameSettings.TileCost;
+            
+            world.AddComponent(entity, new OwnedComponent(true));
+            world.AddComponent(entity, new TileTypeComponent(TileType.Grass));
         }
     }
 }

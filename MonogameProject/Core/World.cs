@@ -10,6 +10,24 @@ namespace MonogameProject.Core
     {
         // Dictionary to hold all entities and their components
         private readonly Dictionary<int, List<IComponent>> _entities = new();
+        // Dictionary to map tile positions to entity IDs
+        private readonly Dictionary<(int x, int y), int> _tileMap = new();
+
+        public void RegisterTile(int x, int y, int entityId)
+        {
+            _tileMap[(x, y)] = entityId;
+        }
+
+        public int? GetTileId(int x, int y)
+        {
+            if (_tileMap.TryGetValue((x, y), out int id))
+            {
+                return id;
+            }
+            return null;
+        }
+
+        // --------------------------------
 
         public Entity CreateEntity(int id)
         {
