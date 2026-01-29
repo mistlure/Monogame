@@ -13,6 +13,8 @@ namespace MonogameProject.Core
         // Dictionary to map tile positions to entity IDs
         private readonly Dictionary<(int x, int y), int> _tileMap = new();
 
+        // --------------------------------
+
         public void RegisterTile(int x, int y, int entityId)
         {
             _tileMap[(x, y)] = entityId;

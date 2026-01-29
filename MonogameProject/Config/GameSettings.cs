@@ -23,5 +23,7 @@ namespace MonogameProject.Config
 
         // Cost per tile
         public const int TileCost = 10;
+        public const int CostGrass = 10;
+        public const int CostSand = 50;
     }
 }

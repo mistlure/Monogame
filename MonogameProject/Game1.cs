@@ -64,6 +64,7 @@ namespace MonogameProject
 
             ZoomSystem.UpdateZoom(gameTime);
 
+            CursorSystem.Update(_world, gameTime);
             TilePurchaseSystem.HandlePurchase(_world, gameTime);
 
             base.Update(gameTime);
