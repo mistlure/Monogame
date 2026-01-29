@@ -23,6 +23,9 @@ namespace MonogameProject.Tests
             {
                 var entity = new Entity(entityId);
 
+                if (world.TryGetComponent<CursorComponent>(entity) != null)
+                    continue;
+
                 var position = world.TryGetComponent<PositionComponent>(entity);
                 var tile = world.TryGetComponent<TileTypeComponent>(entity);
 
@@ -51,6 +54,27 @@ namespace MonogameProject.Tests
                 }
             }
 
+            foreach (var entityId in world.GetAllEntityIds())
+            {
+                var entity = new Entity(entityId);
+
+                if (world.TryGetComponent<CursorComponent>(entity) != null)
+                {
+                    var position = world.TryGetComponent<PositionComponent>(entity);
+                    if (position.HasValue)
+                    {
+                        Rectangle rect = new Rectangle(
+                            position.Value.X * GameSettings.TileSize,
+                            position.Value.Y * GameSettings.TileSize,
+                            GameSettings.TileSize,
+                            GameSettings.TileSize
+                        );
+
+                        // (Alpha = 0.5)
+                        spriteBatch.Draw(pixelTexture, rect, Color.Gray * 0.5f);
+                    }
+                }
+            }
             //spriteBatch.End();
         }
     }
