@@ -65,7 +65,11 @@ namespace MonogameProject
             ZoomSystem.UpdateZoom(gameTime);
 
             CursorSystem.Update(_world, gameTime);
-            TilePurchaseSystem.HandlePurchase(_world, gameTime);
+
+            MenuSystem.Update(_world, gameTime);
+
+            TilePurchaseSystem.Update(_world, gameTime);
+            GrassDigSystem.Update(_world, gameTime);
 
             base.Update(gameTime);
         }
@@ -74,19 +78,14 @@ namespace MonogameProject
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
-
             _spriteBatch.Begin();
 
-            TestDrawMap.TestDraw(_spriteBatch, _pixelTexture, _world);
+            TestDrawMap.TestDraw(_spriteBatch, _pixelTexture, _world, _font);
 
-            // TEMPORARY
-            // Draw coin count in top-right corner
             string coinText = $"Coins: {GameSettings.PlayerCoins}";
             Vector2 textSize = _font.MeasureString(coinText);
             Vector2 position = new Vector2(GraphicsDevice.Viewport.Width - textSize.X - 10, 10);
             _spriteBatch.DrawString(_font, coinText, position, Color.Yellow);
-            // TEMPORARY
 
             _spriteBatch.End();
 

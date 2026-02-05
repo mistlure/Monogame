@@ -58,6 +58,8 @@ namespace MonogameProject.Systems
             var cursorEntity = world.CreateEntity(entityId++);
             world.AddComponent(cursorEntity, new PositionComponent(0, 0));
             world.AddComponent(cursorEntity, new CursorComponent());
+
+            GameSettings.CursorEntityId = cursorEntity.Id;
         }
     }
 }

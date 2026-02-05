@@ -12,13 +12,13 @@ namespace MonogameProject.Components
         Dig
     }
 
-    public struct PurchaseMenuComponent : IComponent
+    public struct ActionMenuComponent : IComponent
     {
         public int TargetEntityId;
         public int CurrentIndex;
         public MenuMode Mode;
 
-        public PurchaseMenuComponent(int targetEntityId, MenuMode mode)
+        public ActionMenuComponent(int targetEntityId, MenuMode mode)
         {
             TargetEntityId = targetEntityId;
             CurrentIndex = 1;

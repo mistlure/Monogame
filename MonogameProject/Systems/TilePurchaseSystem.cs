@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using MonogameProject.Components;
 using MonogameProject.Config;
@@ -14,84 +12,64 @@ namespace MonogameProject.Systems
     {
         private static KeyboardState _previousState;
 
-        public static void HandlePurchase(World world, GameTime gameTime)
+        public static void Update(World world, GameTime gameTime)
         {
             var keyboard = Keyboard.GetState();
 
-            if (!keyboard.IsKeyDown(Keys.Space) || _previousState.IsKeyDown(Keys.Space))
-            {
-                _previousState = keyboard;
-                return;
-            }
+            if (GameSettings.CursorEntityId == -1) return;
+            var cursorEntity = new Entity(GameSettings.CursorEntityId);
 
-            int? cursorX = null;
-            int? cursorY = null;
+            if (world.TryGetComponent<ActionMenuComponent>(cursorEntity) != null) return;
 
-            foreach (var id in world.GetAllEntityIds())
+            if (keyboard.IsKeyDown(Keys.Space) && !_previousState.IsKeyDown(Keys.Space))
             {
-                var ent = new Entity(id);
-                if (world.TryGetComponent<CursorComponent>(ent) != null)
+                var pos = world.TryGetComponent<PositionComponent>(cursorEntity);
+                if (pos.HasValue)
                 {
-                    var pos = world.TryGetComponent<PositionComponent>(ent);
-                    if (pos.HasValue)
-                    {
-                        cursorX = pos.Value.X;
-                        cursorY = pos.Value.Y;
-                    }
-                    break;
+                    TryOpenPurchaseMenu(world, cursorEntity, pos.Value.X, pos.Value.Y);
                 }
-            }
-
-            if (cursorX.HasValue && cursorY.HasValue)
-            {
-                AttemptPurchase(world, cursorX.Value, cursorY.Value);
             }
 
             _previousState = keyboard;
         }
 
-        private static void AttemptPurchase(World world, int targetX, int targetY)
+        private static void TryOpenPurchaseMenu(World world, Entity cursorEntity, int x, int y)
         {
-
-            var targetTileId = world.GetTileId(targetX, targetY);
+            var targetTileId = world.GetTileId(x, y);
             if (targetTileId == null) return;
 
-            var entity = new Entity(targetTileId.Value);
-            var tile = world.TryGetComponent<TileTypeComponent>(entity);
-            var owned = world.TryGetComponent<OwnedComponent>(entity);
+            var targetEntity = new Entity(targetTileId.Value);
+            var tile = world.TryGetComponent<TileTypeComponent>(targetEntity);
+            var owned = world.TryGetComponent<OwnedComponent>(targetEntity);
 
             if (!tile.HasValue) return;
-            if (tile.Value.Type != TileType.Water) return;
-            if (owned.HasValue && owned.Value.isOwned) return;
-            if (GameSettings.PlayerCoins < GameSettings.TileCost) return;
 
-            bool hasNeighbor = false;
+            if (tile.Value.Type != TileType.Water) return;
+
+            if (owned.HasValue && owned.Value.isOwned) return;
+
+            if (!HasOwnedNeighbor(world, x, y)) return;
+
+            world.AddComponent(cursorEntity, new ActionMenuComponent(targetEntity.Id, MenuMode.Buy));
+        }
+
+        private static bool HasOwnedNeighbor(World world, int x, int y)
+        {
             for (int dy = -1; dy <= 1; dy++)
             {
                 for (int dx = -1; dx <= 1; dx++)
                 {
                     if (dx == 0 && dy == 0) continue;
-                    int nx = targetX + dx;
-                    int ny = targetY + dy;
-                    var neighborId = world.GetTileId(nx, ny);
-                    if (neighborId != null)
+                    var nId = world.GetTileId(x + dx, y + dy);
+                    if (nId != null)
                     {
-                        var neighborEnt = new Entity(neighborId.Value);
-                        var neighborOwned = world.TryGetComponent<OwnedComponent>(neighborEnt);
-                        if (neighborOwned.HasValue && neighborOwned.Value.isOwned)
-                        {
-                            hasNeighbor = true;
-                            goto FoundNeighbor;
-                        }
+                        var nEnt = new Entity(nId.Value);
+                        var nOwned = world.TryGetComponent<OwnedComponent>(nEnt);
+                        if (nOwned.HasValue && nOwned.Value.isOwned) return true;
                     }
                 }
             }
-        FoundNeighbor:
-            if (!hasNeighbor) return;
-
-            GameSettings.PlayerCoins -= GameSettings.TileCost;
-            world.AddComponent(entity, new OwnedComponent(true));
-            world.AddComponent(entity, new TileTypeComponent(TileType.Grass));
+            return false;
         }
     }
 }

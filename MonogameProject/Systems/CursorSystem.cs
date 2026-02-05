@@ -30,7 +30,7 @@ namespace MonogameProject.Systems
                 var ent = new Entity(id);
                 if (world.TryGetComponent<CursorComponent>(ent) != null)
                 {
-                    if (world.TryGetComponent<PurchaseMenuComponent>(ent) != null)
+                    if (world.TryGetComponent<ActionMenuComponent>(ent) != null)
                         return;
 
                     cursorId = id;
