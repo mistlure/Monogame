@@ -55,6 +55,18 @@ namespace MonogameProject.Core
             }
         }
 
+        public void RemoveComponent<T>(Entity entity) where T : struct, IComponent
+        {
+            if (_entities.TryGetValue(entity.Id, out var components))
+            {
+                var existing = components.FirstOrDefault(c => c is T);
+                if (existing != null)
+                {
+                    components.Remove(existing);
+                }
+            }
+        }
+
         public IEnumerable<IComponent> GetComponents(Entity entity)
         {
             return _entities.TryGetValue(entity.Id, out var components)
