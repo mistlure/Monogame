@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using MonogameProject.Components;
@@ -22,24 +18,16 @@ namespace MonogameProject.Systems
             var keyboard = Keyboard.GetState();
             float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-            int? cursorId = null;
-            PositionComponent? cursorPos = null;
+            if (GameSettings.CursorEntityId == -1) return;
 
-            foreach (var id in world.GetAllEntityIds())
-            {
-                var ent = new Entity(id);
-                if (world.TryGetComponent<CursorComponent>(ent) != null)
-                {
-                    if (world.TryGetComponent<ActionMenuComponent>(ent) != null)
-                        return;
+            int cursorId = GameSettings.CursorEntityId;
+            var cursorEnt = new Entity(cursorId);
 
-                    cursorId = id;
-                    cursorPos = world.TryGetComponent<PositionComponent>(ent);
-                    break;
-                }
-            }
+            if (world.TryGetComponent<ActionMenuComponent>(cursorEnt) != null)
+                return;
 
-            if (cursorId == null || cursorPos == null) return;
+            var cursorPos = world.TryGetComponent<PositionComponent>(cursorEnt);
+            if (!cursorPos.HasValue) return;
 
             int cx = cursorPos.Value.X;
             int cy = cursorPos.Value.Y;
@@ -75,7 +63,6 @@ namespace MonogameProject.Systems
                     cx = Math.Clamp(cx, 0, GameSettings.MapWidth - 1);
                     cy = Math.Clamp(cy, 0, GameSettings.MapHeight - 1);
 
-                    var cursorEnt = new Entity(cursorId.Value);
                     world.AddComponent(cursorEnt, new PositionComponent(cx, cy));
 
                     _moveCooldown = MoveDelay;
